@@ -4,7 +4,7 @@ body {
     font-size: 20px;
     font-family: sans-serif;
     color: #333;
-    background-color: antiquewhite;
+    background-image: linear-gradient(0deg, navajowhite, white);
 }
 
 * {
@@ -67,8 +67,7 @@ h2 {
     margin-bottom: 1rem;
     text-decoration: none;
     color: white;
-    background: linear-gradient(90deg, rgb(22, 76, 235) 0%, rgb(0, 100, 235) 100%);
-}
+    background: navy;
 
 .btn:hover {
     cursor: pointer;

@@ -57,13 +57,14 @@ loadQuiz()
 
 function loadQuiz() {
     deselectAnswer()
+    
     const currentQuizData = quizData[currentQuiz]
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
     b_text.innerText = currentQuizData.b
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
-    scoreEl.innerText = score;
+    scoreEl.innerHTML = score;
 }
 
 function deselectAnswer() {
@@ -81,7 +82,6 @@ function getSelected() {
 }
 function incrementScore() {
     score ++;
-
 }
 
 submitBtn.addEventListener('click', () => {
@@ -103,6 +103,7 @@ submitBtn.addEventListener('click', () => {
     console.log(answer)
     console.log(score)
 })
+
 //Need to save score locally
 //need to make new page for highscore
 //need to make new page for start button
