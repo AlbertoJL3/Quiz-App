@@ -1,19 +1,19 @@
 var quizData = [
     {
         question: "Who won the 2007 world championship?",
-        a: "",
-        b: "",
-        c: "",
-        d: "",
-        correct: ""
+        a: "Kimi Raikonnen",
+        b: "Fernando Alonso",
+        c: "Lewis Hamilton",
+        d: "Nigel Mansell",
+        correct: "a"
     },
     {
         question: "Who won the 2008 world championship?",
-        a: "",
-        b: "",
-        c: "",
-        d: "",
-        correct: ""
+        a: "Lewis Hamilton",
+        b: "Fernando Alonso",
+        c: "Ayrton Senna",
+        d: "Sebastian Vettel",
+        correct: "a"
     },
     {
         question: "who won the 2009 world championship?",
@@ -21,7 +21,7 @@ var quizData = [
         b: "",
         c: "",
         d: "",
-        correct: ""
+        correct: "a"
     },
     {
         question: "who won the 2010 world championship?",
@@ -29,7 +29,7 @@ var quizData = [
         b: "",
         c: "",
         d: "",
-        correct: ""
+        correct: "a"
     },
     {
         question: "who won the 2011 world championship?",
@@ -37,7 +37,7 @@ var quizData = [
         b: "",
         c: "",
         d: "",
-        correct: ""
+        correct: "a"
     }
 ];
 
@@ -49,7 +49,7 @@ const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
-
+const scoreEl = document.querySelectorAll('score_value')
 let currentQuiz = 0
 let score = 0
 
@@ -63,6 +63,7 @@ function loadQuiz() {
     b_text.innerText = currentQuizData.b
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
+    scoreEl.innerText = score;
 }
 
 function deselectAnswer() {
@@ -78,23 +79,30 @@ function getSelected() {
     })
     return answer
 }
+function incrementScore() {
+    score ++;
+
+}
 
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if (answer) {
-        if (answer === quizData[currentQuiz].correct) {
-            score++
+        if (answer == quizData[currentQuiz].correct) {
+            incrementScore() 
         }
         currentQuiz++
 
         if (currentQuiz < quizData.length) {
             loadQuiz()
+            
         } else {
             quiz.innerHTML = `<h2> You answered ${score}/${quizData.length} question correctly </h2> <button onclick="location.reload()">Reload</button> `
+            window.localStorage.setItem('SCORE', JSON.stringify(score));
         }
     }
+    console.log(answer)
+    console.log(score)
 })
-
 //Need to save score locally
 //need to make new page for highscore
 //need to make new page for start button
