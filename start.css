@@ -68,10 +68,13 @@ h2 {
     text-decoration: none;
     color: white;
     background: navy;
+}
 
 .btn:hover {
     cursor: pointer;
     box-shadow: 0 0 0 2px;
+    background-color: lightblue;
+    color:black;
 }
 
 .btn[disabled]:hover {
@@ -81,9 +84,11 @@ h2 {
 }
 
 #highscore-btn {
-    background: linear-gradient(90deg, rgb(22, 76, 235) 0%, rgb(0, 100, 235) 100%);
+    background: navy;
 }
 
 #highscore-btn:hover {
     box-shadow: 0 0 0 2px;
+    background-color: lightblue;
+    color:black;
 }

@@ -54,17 +54,14 @@ button {
     display: block;
     width: 100%;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 2rem;
     padding: 1.3rem;
 }
 button:hover{
     background-color: lightblue;
     color:black;
 }
-button:focus{
-    outline:none;
-    background-color:green;
-}
+
 a {
     text-decoration: none;
     color: white;

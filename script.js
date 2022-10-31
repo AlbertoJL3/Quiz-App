@@ -1,11 +1,11 @@
-var quizData = [
+var quizData1 = [
     {
         question: "Who won the 2007 world championship?",
-        a: "Kimi Raikonnen",
+        a: "Lewis Hamilton",
         b: "Fernando Alonso",
-        c: "Lewis Hamilton",
+        c: "Kimi Raikonnen",
         d: "Nigel Mansell",
-        correct: "a"
+        correct: "c"
     },
     {
         question: "Who won the 2008 world championship?",
@@ -16,40 +16,59 @@ var quizData = [
         correct: "a"
     },
     {
-        question: "who won the 2009 world championship?",
-        a: "",
-        b: "",
-        c: "",
-        d: "",
-        correct: "a"
+        question: "Which rookie team won their first world championship on their first season ever? ",
+        a: "Mercedes Benz",
+        b: "Sauber",
+        c: "Alpha Romeo",
+        d: "Brawn GP",
+        correct: "d"
     },
     {
-        question: "who won the 2010 world championship?",
-        a: "",
-        b: "",
-        c: "",
-        d: "",
-        correct: "a"
+        question: "Which team became has won 8 constructor's championships in a row?",
+        a: "Red Bull",
+        b: "Mercedes",
+        c: "Scuderia Ferrari",
+        d: "Alpha Tauri",
+        correct: "b"
     },
     {
-        question: "who won the 2011 world championship?",
-        a: "",
-        b: "",
-        c: "",
-        d: "",
-        correct: "a"
+        question: "Who is Max Verstappen's teammate in the 2022 Formula 1 Season? ",
+        a: "Lewis Hamilton",
+        b: "George Russell",
+        c: "Sergio Perez",
+        d: "Fernando Alonso",
+        correct: "c"
     }
 ];
 
-const quiz = document.getElementById('quiz')
-const answerEls = document.querySelectorAll('.answer')
-const questionEl = document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
-const submitBtn = document.getElementById('submit')
-const scoreEl = document.querySelectorAll('score_value')
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array
+}
+
+var quizData = shuffle(quizData1);
+var quiz = document.getElementById('quiz')
+var answerEls = document.querySelectorAll('.answer')
+var questionEl = document.getElementById('question')
+var a_text = document.getElementById('a_text')
+var b_text = document.getElementById('b_text')
+var c_text = document.getElementById('c_text')
+var d_text = document.getElementById('d_text')
+var submitBtn = document.getElementById('submit')
+var scoreEl = document.getElementById('score_value')
 let currentQuiz = 0
 let score = 0
 
@@ -57,14 +76,13 @@ loadQuiz()
 
 function loadQuiz() {
     deselectAnswer()
-    
     const currentQuizData = quizData[currentQuiz]
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
     b_text.innerText = currentQuizData.b
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
-    scoreEl.innerHTML = score;
+    
 }
 
 function deselectAnswer() {
@@ -82,6 +100,7 @@ function getSelected() {
 }
 function incrementScore() {
     score ++;
+    scoreEl.innerText = score
 }
 
 submitBtn.addEventListener('click', () => {
@@ -100,8 +119,7 @@ submitBtn.addEventListener('click', () => {
             window.localStorage.setItem('SCORE', JSON.stringify(score));
         }
     }
-    console.log(answer)
-    console.log(score)
+    
 })
 
 //Need to save score locally
