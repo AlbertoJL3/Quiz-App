@@ -63,16 +63,19 @@ button {
     background-color: navy;
     color: white;
     border: none;
+    border-radius: 5px black;
     display: block;
     width: 100%;
     cursor: pointer;
     font-size: 2rem;
     padding: 1.3rem;
+    margin-bottom: 3px;
 }
 
 button:hover {
     background-color: lightblue;
     color: black;
+    border-radius: 5px black;
 }
 
 
@@ -94,7 +97,7 @@ a {
 input {
     margin-bottom: 1rem;
     width: 20rem;
-    padding: 1.5rem;
+    padding: 1rem;
     font-size: 1.8rem;
     border: none;
     box-shadow: 0 0 0 2px black;
@@ -126,19 +129,22 @@ input::placeholder {
 }
 a {
     background-color: navy;
+    border-radius: 5px black;
     color: white;
     border: none;
     display: block;
     width: 100%;
     cursor: pointer;
     font-size: 2rem;
-    padding: 1.3rem;
+    padding: 1rem;
+    margin-bottom: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 a:hover {
     background-color: lightblue;
+    border-radius: 5px black;
     color: black;
  
 }
