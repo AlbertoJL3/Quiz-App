@@ -40,6 +40,8 @@ var quizData1 = [
         correct: "c"
     }
 ];
+var timerEl = document.getElementById("timer");
+
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -55,7 +57,7 @@ function shuffle(array) {
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-  
+
     return array
 }
 
@@ -82,6 +84,7 @@ function loadQuiz() {
     b_text.innerText = currentQuizData.b
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
+    answeredQuestions = 0;
     
 }
 
@@ -121,7 +124,15 @@ submitBtn.addEventListener('click', () => {
     }
     
 })
+setInterval(setTimer(),1000)
 
+function setTimer() {
+var timer = 30;
+ if (timer>0){
+ timer = timer - 1;
+ timerEl.innerText = timer;
+ } 
+ }
 //Need to save score locally
 //need to make new page for highscore
 //need to make new page for start button
