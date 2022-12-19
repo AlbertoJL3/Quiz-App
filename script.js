@@ -42,7 +42,6 @@ var quizData1 = [
 ];
 var timerEl = document.getElementById("timer");
 
-
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
@@ -85,7 +84,6 @@ function loadQuiz() {
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
     answeredQuestions = 0;
-    
 }
 
 function deselectAnswer() {
@@ -113,12 +111,13 @@ submitBtn.addEventListener('click', () => {
             incrementScore() 
         }
         currentQuiz++
+        
 
         if (currentQuiz < quizData.length) {
             loadQuiz()
             
         } else {
-            quiz.innerHTML = `<h2> You answered ${score}/${quizData.length} question correctly </h2> <button onclick="location.reload()">Reload</button> `
+            quiz.innerHTML = `<h2> You answered ${score}/${quizData.length} question correctly </h2> <button onclick="location.reload()">Reload</button> <a href="highscore.html"><button>Save Score</button><a> `
             window.localStorage.setItem('SCORE', JSON.stringify(score));
         }
     }
